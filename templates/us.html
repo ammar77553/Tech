@@ -1,0 +1,89 @@
+{% extends "base/main.html" %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br>
+<section class="bg-light app">
+    <div class="container">
+        <div class="d-flex flex-column-reverse flex-lg-row align-items-center">
+            <div class="col-lg-6 text-start">
+                <h1 class="py-5 text-primary typo-space-line">من نحن </h1>
+                <p>
+                    نحن شركة تقنية متخصصة في تطوير الحلول البرمجية وتصميم المواقع الإلكترونية. نحن نستخدم أحدث التقنيات
+                    وأفضل
+                    الممارسات لتلبية احتياجات عملائنا.
+                    <hr>
+                    تأسست الشركة في عام 2010 ومنذ ذلك الحين نمت وتطورت باستمرار لتصبح واحدة من أفضل الشركات في مجالنا.
+                    نحن نقدم
+                    خدماتنا للشركات الصغيرة والمتوسطة والكبيرة في جميع أنحاء العالم.
+                </p>
+            </div>
+            <div class="col-lg-5">
+                <img src="{% static 'img/png/2.svg'%}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-light w-60 h4 app">
+    <div class="container">
+        <div class="row d-flex align-items-center py-5">
+            <div class="col-lg-6 text-start">
+                <h1 class="h2 py-5 text-primary typo-space-line">رؤيتنا </h1>
+                <p>نحن نسعى لتحقيق الريادة في مجالنا وتقديم الحلول البرمجية الأكثر تطورًا والأفضل في السوق.</p>
+                
+            </div>
+            
+            <div class="col-lg-5">
+                <img src="{% static 'img/png/1.svg'%}">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="bg-light w-60 h4 app">
+    <div class="container">
+        <div class="row d-flex align-items-center py-5">
+            <div class="col-lg-6 text-start">
+                <h1 class="h2 py-5 text-primary typo-space-line"> رسالتنا </h1>
+                <p>نحن نعمل بجد لتلبية احتياجات عملائنا وتحقيق أهدافهم من خلال توفير حلول برمجية مبتكرة وفعالة وذات جودة
+                    عالية.
+                </p>
+
+            </div>
+            <div class="col-lg-5">
+                <img src="{% static 'img/png/5.svg'%}">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-light w-60 h4 app">
+    <div class="container">
+        <div class="row d-flex align-items-center py-5">
+            <div class="col-lg-6 text-start">
+                <h1 class="h2 py-5 text-primary typo-space-line">قيمنا</h1>
+                <ul>
+                    <li>الجودة: نحن نسعى دائمًا لتقديم الأفضل في جميع جوانب عملنا.</li>
+                    <li>الابتكار: نحن نستخدم أحدث التقنيات ونسعى دائمًا لتحسين عملنا.</li>
+                    <li>الشفافية: نحن نتعامل مع عملائنا بصدق وشفافية.</li>
+                    <li>التعاون: نحن نعمل كفريق واحد مع عملائنا لتحقيق النجاح المشترك.</li>
+                    <li>التزامنا بالمواعيد النهائية: نحن نلتزم بتقديم المشاريع في الوقت المحدد.</li>
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                <img src="{% static 'img/png/4.svg'%}">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}

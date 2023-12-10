@@ -1,0 +1,138 @@
+{% extends "base/main.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Start Bottom Header -->
+<div class="header-bg page-area">
+    <div class="home-overly"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="slider-content text-center">
+                    <div class="header-bottom">
+                        <div class="layer2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".4s">
+                            <h1 class="title2">Blog Details </h1>
+                        </div>
+                        <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
+                            <h2 class="title3">profesional Blog Page</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Header -->
+<div class="blog-page area-padding">
+    <div class="container">
+        <div class="row">
+
+            <!-- End left sidebar -->
+            <!-- Start single blog -->
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- single-blog start -->
+                        <article class="blog-post-wrapper">
+                            <div class="post-thumbnail">
+                                <img src="{{blog.image.url}}" alt="" />
+                            </div>
+                            <div class="post-information">
+                                <h2>{{blog.name}}</h2>
+                                <div class="entry-meta">
+                                    <!-- <span class="author-meta"><i class="fa fa-user"></i> <a href="#">admin</a></span> -->
+                                    <span><i class="fa fa-clock-o"></i> {{blog.created}}</span>
+                                    <span class="tag-meta">
+                                        <i class="fa fa-folder-o"></i>
+                                        <!-- <a href="#">painting</a>, -->
+                                        <!-- <a href="#">work</a> -->
+                                    </span>
+                                    <!-- <span>
+                                        <i class="fa fa-tags"></i>
+                                        <a href="#">tools</a>,
+                                        <a href="#"> Humer</a>,
+                                        <a href="#">House</a>
+                                    </span> -->
+                                    <span><i class="fa fa-comments-o"></i> <a href="#">{{total_blog}}
+                                            comments</a></span>
+                                </div>
+                                <div class="entry-content">
+                                    <p>{{blog.des}}</p>
+                                </div>
+                            </div>
+                        </article>
+                        <div class="clear"></div>
+                        <div class="single-post-comments">
+                            <div class="comments-area">
+                                <div class="comments-heading">
+                                    <h3>{{ comments.count}} comments</h3>
+                                </div>
+                                <div class="comments-list">
+                                    {% for comment in comments %}
+                                    <ul>
+                                        <li class="threaded-comments">
+                                            <div class="comments-details">
+                                                <div class="comments-list-img">
+                                                    <img src="{% static 'img/blog/b02.jpg'%}" alt="post-author">
+                                                </div>
+                                                <div class="comments-content-wrap">
+                                                    <span>
+                                                        <b class="h4"><a href="#">{{ comment.name }}</a>
+
+                                                        </b>
+                                                        Post author
+                                                        <span class="post-time h5">{{ comment.created }}</span>
+                                                        <!-- <a href="#">Reply</a> -->
+                                                    </span>
+                                                    <p class="h6">{{ comment.comment }}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    {% empty %}
+                                    <p>No comments found for this bloge.</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="comment-respond">
+                                <h3 class="comment-reply-title">أضف تعليقك </h3>
+                                <span class="email-notes">لن يتم نشر عنوان بريدك الإلكتروني *</span>
+                                <form action="{% url 'blogdetails' blog.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <p>الاسم *</p>
+                                            <input type="text" name="name" />
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                            <p>الايميل *</p>
+                                            <input type="email" name="email" />
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 comment-form-comment">
+                                            <p>التعليق</p>
+                                            <textarea id="message-box" name="comment" cols="30" rows="10"></textarea>
+                                            <input type="submit" value="Post Comment" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- single-blog end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-pagination text-center">
+    <ul class="pagination">
+        <li><a href="#">&lt;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&gt;</a></li>
+    </ul>
+</div>
+<!-- End Blog Area -->
+<div class="clearfix"></div>
+{% endblock %}

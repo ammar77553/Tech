@@ -1,0 +1,78 @@
+{% extends "base/main.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Start Bottom Header -->
+<div class="header-bg page-area">
+    <div class="home-overly"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="slider-content text-center">
+                    <div class="header-bottom">
+                        <div class="layer2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".4s">
+                            <h1 class="title2">My Blog</h1>
+                        </div>
+                        <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
+                            <h2 class="title3">Profesional Blog Page</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END Header -->
+
+<div class="blog-page area-padding">
+    <p class="text-center h1">أحدث الأخبار</p>
+    <div class="container py-4">
+        <div class="row">
+            <!-- Start single blog -->
+            {% for blog in blog %}
+            <div class="col-md-4 col-sm-12 col-xs-12" style="border: 1px solid #ffffff; 
+            border-radius: 30px; margin-bottom: 20px; 
+                  background-color: rgba(31, 189, 36, 0.082); 
+                 box-shadow: 0px 0px 10px rgba(69, 67, 67, 0.3);">
+                <div class="single-blog">
+                    <div class="single-blog-img">
+                        <a href="{% url 'blogdetails' blog.id  %}">
+                            <img style="width: 100%; height: auto;  border-radius: 30px;" src="{{ blog.image.url }}" alt="">
+                        </a>
+                    </div>
+                    <div class="blog-meta">
+                        <span class="comments-type">
+                            <i class="fa fa-comment-o"></i>
+                            <a href="{% url 'blogdetails' blog.id %}">{{ blog.comments.count }} comments</a>
+                        </span>
+                        <span class="date-type">
+                            <i class="fa fa-calendar"></i>{{ blog.created }}
+                        </span>
+                    </div>
+                    <div class="blog-text">
+                        <h4>
+                            <a href="#">{{ blog.name }}</a>
+                        </h4>
+                        <p>
+                            {{ blog.des|truncatewords:20 |linebreaks }}
+                        </p>
+                    </div>
+                    <span>
+                        <a href="{% url 'blogdetails' blog.id %}" class="ready-btn">Read more</a>
+                    </span>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="clearfix"></div> -->
+{% endblock %}
